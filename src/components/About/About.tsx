@@ -19,7 +19,7 @@ const About = () => {
         <CustomButtonSC onClick={() => linkRef.current?.click()}>
           Скачать каталог
         </CustomButtonSC>
-        <a ref={linkRef} href="/Каталог.xlsx" download style={{position: "absolute", visibility: "hidden", width: "0px", height: "0px"}}>123</a>
+        <a ref={linkRef} href="/Каталог.pdf" download style={{position: "absolute", visibility: "hidden", width: "0px", height: "0px"}}>123</a>
       </PdfContainer>
     </WrapperSC>
   );
