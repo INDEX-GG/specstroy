@@ -1,0 +1,10 @@
+version: "3"
+services:
+  app:
+    image: metall-tech74_v2
+    container_name: metall-tech74_v2
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - "5774:3000"
