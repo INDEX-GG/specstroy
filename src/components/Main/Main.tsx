@@ -25,7 +25,7 @@ const Main = () => {
     setModal("loading");
     emailJs
       .send(
-        EMAIL_JS.serviceID + "1",
+        EMAIL_JS.serviceID,
         EMAIL_JS.templateID,
         {...data, agree: data.agree ? "Да" : "Нет"},
         EMAIL_JS.publicKey,
@@ -80,7 +80,7 @@ const Main = () => {
       </InnerContainerSC>
       <ModalUI isOpen={!!modal} handleClose={() => setModal("")} className="modalCenter">
         {modal === "success" && "Заявка успешно отправленна"}
-        {modal === "error" && `Ошибка при отправке заявки.\n Свяжитесь через контакты.\n\nE-mail: artmova.ksenya@mail.ru\nТелефон +7 (912) 308-46-80`}
+        {modal === "error" && `Ошибка при отправке заявки.`}
         {modal === "loading" && "Отправка заявки..."}
       </ModalUI>
     </SectionSC>
