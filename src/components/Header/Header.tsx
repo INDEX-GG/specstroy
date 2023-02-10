@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logo from "../Logo/Logo";
 import {createPortal} from "react-dom";
 import ModalUI from "../../UI/ModalUI/ModalUI";
+import { about } from "../../lib/mock/aboutMock";
 
 type ModalState = "contacts" | "requisites" | ""
 
@@ -18,14 +19,14 @@ const Header = () => {
   return (
     <HeaderSC>
       <SectionSC className="container">
-        <div style={{marginRight: "15px"}}>
+        <LogoContainerSC>
           <Logo/>
-        </div>
+        </LogoContainerSC>
         <NavSC>
           <UlSC>
-            <LiSC style={{marginRight: "30px"}}>
-              <ButtontSC onClick={handleModalClose("requisites")} type="button">Реквизиты</ButtontSC>
-            </LiSC>
+            {/* <LiSC style={{marginRight: "30px"}}> */}
+              {/* <ButtontSC onClick={handleModalClose("requisites")} type="button">Реквизиты</ButtontSC> */}
+            {/* </LiSC> */}
             <LiSC>
               <ButtontSC onClick={handleModalClose("contacts")} type="button">
                 Контакты
@@ -36,18 +37,18 @@ const Header = () => {
         <ModalUI isOpen={modal !== ""} handleClose={handleModalClose("")}>
           {modal === "contacts" && (
             <>
-              Email: 89193563142@mail.ru{"\n"}
-              Телефон: + 7-919-356 31-42
+              Email: {about.Email}{"\n"}
+              Телефон: {about.phone}
             </>
           )}
-          {modal === "requisites" && (
+          {/* {modal === "requisites" && (
             <>
               -ИП Артёмова Ксения Андреевна{"\n"}
               -E-mail: artmova.ksenya@mail.ru{"\n"}
               -Телефон +7 (912) 308-46-80{"\n"}
               -ИНН 743006085219{"\n"}
             </>
-          )}
+          )} */}
         </ModalUI>
       </SectionSC>
     </HeaderSC>
@@ -65,6 +66,28 @@ const HeaderSC = styled("header")`
   align-items: center;
   min-height: 79px;
 `
+
+const LogoContainerSC = styled("div")`
+  margin-right: 15px;
+  @media(max-width: 600px) {
+    & > svg {
+      width: 150px;
+      height: 50px
+    }
+  }
+  @media(max-width: 375px) {
+    & > svg {
+      width: 120px;
+      height: 50px
+    }
+  }
+  @media(max-width: 330px) {
+    & > svg {
+      width: 100px;
+      height: 50px
+    }
+  }
+`;
 
 const SectionSC = styled("section")`
   padding-top: 15px;
